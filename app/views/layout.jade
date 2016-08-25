@@ -1,0 +1,12 @@
+//- 布局文件
+
+doctype
+html
+	head
+		meta(charset="utf-8")
+		title #{title}
+		//- 因为要集成样式，所以抽象成一个区块
+		include ./includes/head
+	body
+		include ./includes/header
+		block content

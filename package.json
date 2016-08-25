@@ -1,0 +1,36 @@
+{
+  "name": "imooc",
+  "version": "0.0.1",
+  "description": "imooc-web",
+  "main": "app.js",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.15.2",
+    "connect-mongo": "^1.3.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "express-session": "^1.14.0",
+    "jade": "^1.11.0",
+    "moment": "^2.14.1",
+    "mongodb": "^2.2.1",
+    "mongoose": "^4.5.4",
+    "morgan": "^1.7.0",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.14.0",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-nodemon": "^2.1.0",
+    "gulp-watch": "^4.3.9"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "imooc",
+    "movie"
+  ],
+  "author": "Scott",
+  "license": "ISC"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "imooc",
+  "description": "imcoo-web",
+  "main": "",
+  "keywords": [
+    "imooc"
+  ],
+  "authors": [
+    "1004041672@qq.com"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
