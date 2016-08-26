@@ -57,20 +57,19 @@ exports.login = function(req,res){
 
 如果是一个异步jq ajax是一个post data 截过来呢也是在body里面的
     _userid = req.body.userid
-    
+
 req.param('user')  这是上面的一个集合，不知道什么的时候可以直接使用 param()方法*/
     var _user = req.body.user
     var name = _user.name
     var password = _user.password
 
-    User.findOne({name: name,role: 50}, function(err,user) {
+    User.findOne({name: name}, function(err,user) {
         if(err){
             console.log(err)
         }
         if(!user){
             return res.redirect('/signup')
         }
-        console.log('2016.8.24'+user.length)
         user.comparePassword(password,function(err,isMatch){
             if(err){
                 console.log(err)

@@ -1,6 +1,7 @@
 var Index = require('../app/controllers/index')
 var User = require('../app/controllers/user')
 var Movie = require('../app/controllers/movie')
+var Comment = require('../app/controllers/Comment')
 
 module.exports = function(app) {
 app.use(function(req,res,next){
@@ -11,7 +12,7 @@ app.use(function(req,res,next){
 
 //express 中路由其实是非常简单的
 
-//Index  
+//Index
 app.get('/', Index.index)
 
 //User
@@ -32,4 +33,6 @@ app.get('/admin/movie', User.signinRequired, User.adminRequired ,Movie.movie)
 app.get('/admin/update/:id', User.signinRequired, User.adminRequired ,Movie.update)
 app.delete('/admin/list',User.signinRequired, User.adminRequired , Movie.list)
 
+// Comment
+app.post('/user/comment',User.signinRequired,Comment.save )
 }

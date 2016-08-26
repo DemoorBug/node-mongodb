@@ -1,14 +1,12 @@
 var mongoose = require('mongoose')
+var Schema = mongoose.Schema
+var ObjectId = Schema.Types.ObjectId
 
-var CommentSchema = new mongoose.Schema({
-    doctor: String,
-    title: String,
-    language: String,
-    country: String,
-    summary: String,
-    flash: String,
-    poster: String,
-    year: Number,
+var CommentSchema = new Schema({
+    movie: {type: ObjectId, ref: 'Movie'},
+    from: {type: ObjectId, ref: 'User'},
+    to: {type: ObjectId, ref: 'User'},
+    content: String,
     meta: {
         createdAt: {
             type: Date,
