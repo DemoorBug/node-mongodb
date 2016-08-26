@@ -13,13 +13,14 @@ exports.detail = function(req,res){
         .populate('from','name')
         //第一个参数from 第二个参数 生成的字段
         //给from增加一个 字段，去user表里面查 怎么知道我查的是什么表，还有什么属性？
+        .populate('reply.from reply.to','name')
         .exec(function(err,comments){
         //exec()是一个回调
-        console.log(comments)
+        console.log('1231'+comments[0].reply[0].content)
             res.render('detail',{
                 title: 'imooc'+ movie.title,
                 movie: movie,
-                comments: comments
+                comments: comments,
             })
     })
 
