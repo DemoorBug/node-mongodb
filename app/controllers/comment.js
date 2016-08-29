@@ -9,7 +9,7 @@ exports.save = function(req,res){
    if (_comment.cid) {
     Comment.findById(_comment.cid,function(err,comment){
         var reply = {
-            form: _comment.from,
+            from: _comment.from,
             to: _comment.tid,
             content: _comment.content
         }

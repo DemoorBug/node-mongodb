@@ -37,6 +37,6 @@ block content
                     a.comment(href="#comments", data-cid="#{item._id}", data-tid="#{item.from._id}") 回复
                     if item.reply && item.reply.length > 0
                         each reply in item.reply
-                            //- h4.media-heading #{reply.from.name} 遗留问题
+                            h4.media-heading #{reply.from.name}
                             p #{reply.content}
     script(src="/js/detail.js")

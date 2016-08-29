@@ -16,11 +16,11 @@ exports.detail = function(req,res){
         .populate('reply.from reply.to','name')
         .exec(function(err,comments){
         //exec()是一个回调
-        console.log('1231'+comments[0].reply[0].content)
+            console.log('onesss'+comments)
             res.render('detail',{
                 title: 'imooc'+ movie.title,
                 movie: movie,
-                comments: comments,
+                comments: comments
             })
     })
 

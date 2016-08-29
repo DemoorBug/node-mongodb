@@ -3,7 +3,7 @@
         .page-header
             .h1 #{title}
             small 重度科幻迷
-.navbar.navbar-default.navbar-fixed-bottom.navbar-inverse
+.navbar.navbar-default.navbar-fixed-top.navbar-inverse
     .container-fluid
         .navbar-header
             a.navbar-brand(href="/") Imovie
@@ -25,8 +25,8 @@
                     span &nbsp;|&nbsp;
                     a.navbar-link(href="/logout") 注销
                     span &nbsp;&nbsp;
-            else 
-                p.navbar-text.navbar-right 
+            else
+                p.navbar-text.navbar-right
                     a.navbar-link(href="#", data-toggle="modal", data-target="#loginModal") 登录
                     span &nbsp;|&nbsp;
                     a.navbar-link(href="#", data-toggle="modal", data-target="#signupModal") 注册
