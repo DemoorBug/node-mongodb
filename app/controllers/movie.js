@@ -16,7 +16,6 @@ exports.detail = function(req,res){
         .populate('reply.from reply.to','name')
         .exec(function(err,comments){
         //exec()是一个回调
-            console.log('onesss'+comments)
             res.render('detail',{
                 title: 'imooc'+ movie.title,
                 movie: movie,
