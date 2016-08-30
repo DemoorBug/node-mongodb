@@ -11,7 +11,6 @@ exports.new = function(req,res){
 
 exports.save = function(req,res){
     var _category =req.body.category
-    console.log(_category)
     var category = new Category(_category)
 
         category.save(function(err,category) {

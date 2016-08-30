@@ -4,7 +4,7 @@ var ObjectId = Schema.Types.ObjectId
 
 var CategorySchema = new Schema({
     name: String,
-    movies: [{type: Object, rel: 'Movie'}],
+    movies: [{type: ObjectId, ref: 'Movie'}],
     meta: {
         createdAt: {
             type: Date,
