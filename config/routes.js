@@ -43,4 +43,6 @@ app.post('/admin/category', User.signinRequired, User.adminRequired ,category.sa
 
 app.get('/admin/category/list', User.signinRequired, User.adminRequired ,category.list)
 
+// results
+app.get('/results',Index.search)
 }
