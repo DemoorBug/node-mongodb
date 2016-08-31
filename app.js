@@ -1,10 +1,11 @@
 var express = require('express')
 var path = require('path');
 var mongoose = require('mongoose');
-var cookieParser = require('cookie-parser') 
+var cookieParser = require('cookie-parser')
 var session = require('express-session')
 var mongStore = require('connect-mongo')(session);
 var morgan = require('morgan')
+var multipart = require('connect-multiparty');
 
 var bodyParser = require('body-parser');
 var port = process.env.PORT || 3000
@@ -19,6 +20,8 @@ app.set('views','./app/views/pages')
 app.set('view engine','jade')    //设置默认的模板引擎
 app.use(bodyParser.urlencoded({ extended: true })) //表单数据格式化
 app.use(cookieParser())
+app.use(multipart());
+
 app.use(session({
  	secret: 'imovie',
  	resave:false,
@@ -30,7 +33,7 @@ app.use(session({
 }))
 /**
  * :method 请求类型  :url URL  :status状态码 :response-time 请求的响应时间
- * 
+ *
  */
 if('development' === app.get('env')) {
 	app.set('showStackError',true)

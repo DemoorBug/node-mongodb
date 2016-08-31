@@ -47,6 +47,10 @@ block content
                     .col-sm-10
                         input#inputPoster.form-control(type="text",name="movie[poster]",value=movie.poster)
                 .from-group.clearfix
+                    label.col-sm-2.control-label(for="uploadPoster") 上传
+                    .col-sm-10
+                        input#uploadPoster.form-control(type="file",name="uploadPoster")
+                .from-group.clearfix
                     label.col-sm-2.control-label(for="inputFlash") 片源地址
                     .col-sm-10
                         input#inputFlash.form-control(type="text",name="movie[flash]",value=movie.flash)

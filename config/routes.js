@@ -28,10 +28,10 @@ app.get('/admin/userlist', User.signinRequired, User.adminRequired ,User.userlis
 //Movie
 app.get('/movie/:id', Movie.detail)
 app.get('/admin/list', User.signinRequired, User.adminRequired ,Movie.list)
-app.post('/admin/movie/new', User.signinRequired, User.adminRequired ,Movie.new)
-app.get('/admin/movie', User.signinRequired, User.adminRequired ,Movie.movie)
+app.post('/admin/movie/new', User.signinRequired, User.adminRequired ,Movie.savePoster ,Movie.new)
+app.get('/admin/movie', User.signinRequired, User.adminRequired , Movie.movie)
 app.get('/admin/update/:id', User.signinRequired, User.adminRequired ,Movie.update)
-app.delete('/admin/list',User.signinRequired, User.adminRequired , Movie.list)
+app.delete('/admin/list',User.signinRequired, User.adminRequired , Movie.del)
 
 // Comment
 app.post('/user/comment',User.signinRequired,Comment.save )
@@ -45,4 +45,6 @@ app.get('/admin/category/list', User.signinRequired, User.adminRequired ,categor
 
 // results
 app.get('/results',Index.search)
+
+
 }

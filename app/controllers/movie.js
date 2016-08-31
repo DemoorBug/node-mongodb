@@ -2,10 +2,17 @@ var _ = require('underscore')
 var Movie = require('../models/movie')
 var Category = require('../models/category')
 var Comment = require('../models/comment')
+var fs = require('fs')
+var path = require('path')
 
 //detail page
 exports.detail = function(req,res){
     var id = req.params.id;
+    Movie.update({_id:id},{$inc: {pv:1}},function(err){
+        if(err){
+            console.log(err)
+        }
+    })
     Movie.findById(id,function(err,movie){
     // Comment.find({movie: id},function(err,comments){  //这个不能拿到用户名
     //要做一点手脚，关联 user数据
@@ -42,10 +49,40 @@ exports.list = function(req,res){
 
 }
 
+
+//存储
+exports.savePoster = function(req,res,next) {
+    var posterData = req.files.uploadPoster
+    console.log(req.files)
+    var filePath = posterData.path
+    var originalFilename = posterData.originalFilename
+    if (originalFilename) {
+        fs.readFile(filePath,function(err,data){
+            var timestamp = Date.now()
+            var type = posterData.type.split('/')[1]
+            var poster = timestamp + '.' + type
+            var newPath = path.join(__dirname,'../../','/public/upload/'+poster)
+            fs.writeFile(newPath,data,function(err){
+                req.poster = poster;
+                next()
+            })
+        })
+    }
+    else {
+        next()
+    }
+}
+
+
 exports.new = function(req,res){
     var id =req.body.movie._id
     var movieObj = req.body.movie
     var _movie
+    //上传
+    if(req.poster) {
+        movieObj.poster = req.poster
+    }
+
     if (id) {
         Movie.findById(id,function(err,movie){
             if(err) {
