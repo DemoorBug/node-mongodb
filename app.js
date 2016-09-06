@@ -8,7 +8,7 @@ var morgan = require('morgan')
 var multipart = require('connect-multiparty');
 
 var bodyParser = require('body-parser');
-var port = process.env.PORT || 3000
+var port = process.env.PORT || 4000
 var app = express();
 
 var dbUrl = 'mongodb://localhost/imooc'
